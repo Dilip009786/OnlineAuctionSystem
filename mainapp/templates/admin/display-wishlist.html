@@ -1,0 +1,83 @@
+{% extends 'admin/basepage.html' %} {% load static %} {% block content %}
+
+<div class="container-xxl flex-grow-1 container-p-y">
+  <div class="app-ecommerce">
+    <!-- CategoryList -->
+    <div
+      class="d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center mb-6 gap-4 gap-md-0"
+    >
+      <div class="d-flex flex-column justify-content-center">
+        <h4 class="mb-1">Wishlist</h4>
+        <p class="mb-0">Manage Categories with more action effectively.</p>
+      </div>
+    </div>
+  <!-- Product List Table -->
+  <div class="card">
+    <div class="card-header">
+      <h5 class="mb-0">Wishlist</h5>
+    </div>
+    <div class="card-datatable table-responsive">
+      <table class="datatables-wishlist table table-striped table-bordered">
+        <thead>
+          <tr>
+            <th></th>
+            <th><input type="checkbox" class="form-check-input" /></th>
+            <th>User</th>
+            <th>Product Name</th>
+            <th>Category</th>
+            <th>Asking Price</th>
+            <th>Expiry Time</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for item in wishlist %}
+          <tr class="{% cycle 'odd' 'even' %}">
+            <td class="control"></td>
+            <td class="dt-checkboxes-cell">
+              <input type="checkbox" class="dt-checkboxes form-check-input" />
+            </td>
+            <td>{{ item.user.username }}</td>
+            <td>{{ item.product.name }}</td>
+            <td>{{ item.product.category.name }}</td>
+            <td>${{ item.product.askingprice }}</td>
+            <td>{{ item.product.expirytime|date:"Y-m-d H:i" }}</td>
+            <td>
+              <div class="d-inline-block text-nowrap">
+                <button
+                  class="btn btn-sm btn-icon btn-text-secondary rounded-pill text-body"
+                >
+                  <i class="ri-edit-box-line"></i>
+                </button>
+                <button
+                  class="btn btn-sm btn-icon btn-text-secondary rounded-pill text-body dropdown-toggle hide-arrow"
+                  data-bs-toggle="dropdown"
+                >
+                  <i class="ri-more-2-line"></i>
+                </button>
+                <div class="dropdown-menu dropdown-menu-end">
+                  <a href="#" class="dropdown-item">View</a>
+                  <a
+                    href="{% url 'delete_object' model_name='wishlist' object_id=item.id %}"
+                    class="btn btn-sm btn-icon btn-text-secondary rounded-pill text-body"
+                  >
+                    <i class="ri-delete-bin-line"></i>
+                  </a>
+                </div>
+              </div>
+            </td>
+          </tr>
+          {% empty %}
+          <tr>
+            <td colspan="7" class="text-center">
+              No Wishlisted Product found.
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

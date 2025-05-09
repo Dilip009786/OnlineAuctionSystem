@@ -1,0 +1,116 @@
+{% extends 'user/basepage.html' %} {% load static %} {% block content %}
+
+<div class="contact-page pt-110 mb-110">
+  <div class="container">
+    <div class="row g-lg-4 gy-5 align-items-center">
+      <div class="col-lg-11">
+        <div class="contact-form-area">
+          <!-- Edit Profile Form -->
+          <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="row">
+              {% if user_profile %}
+              
+              <div class="col-md-12 mb-20">
+                <h2>Welcome to your edit profile!</h2>
+                <p>Please fill in your profile details below:</p>
+                </div>
+              <div class="col-md-6 mb-20">
+                <div class="form-inner">
+                  <label>Username</label>
+                  <input
+                    type="text"
+                    name="username"
+                    value="{{ user.username }}"
+                  />
+                </div>
+              </div>
+              <div class="col-md-6 mb-20">
+                <div class="form-inner">
+                  <label>Email</label>
+                  <input type="email" name="email" value="{{ user.email }}" />
+                </div>
+              </div>
+              <div class="col-md-6 mb-20">
+                <div class="form-inner">
+                  <label>First Name</label>
+                  <input
+                    type="text"
+                    name="first_name"
+                    value="{{ user.first_name }}"
+                  />
+                </div>
+              </div>
+              <div class="col-md-6 mb-20">
+                <div class="form-inner">
+                  <label>Last Name</label>
+                  <input
+                    type="text"
+                    name="last_name"
+                    value="{{ user.last_name }}"
+                  />
+                </div>
+              </div>
+              {% else %}
+              <div class="col-md-12 mb-20">
+              <h2>Welcome to your profile!</h2>
+              <p>Please fill in your profile details below:</p>
+              </div>
+              {% endif %}
+              <div class="col-md-6 mb-20">
+                <div class="form-inner">
+                  <label>Phone Number</label>
+                  <input
+                    type="tel"
+                    name="phoneno"
+                    {%
+                    if
+                    user_profile
+                    %}
+                    value="{{ user_profile.phoneno }}"
+                    {%
+                    endif
+                    %}
+                    required
+                  />
+                </div>
+              </div>
+              <div class="col-md-6 mb-20">
+                <div class="form-inner">
+                  <label>Profile Photo</label>
+                  <input type="file" name="photo" accept="image/*" />
+                </div>
+              </div>
+              <div class="col-md-12 mb-20">
+                <div class="form-inner">
+                  <label>Address</label>
+                  <textarea
+                    name="address"
+                    {%
+                    if
+                    user_profile
+                    %}
+                    value="{{ user_profile.address }}"
+                    {%
+                    endif
+                    %}
+                    required
+                  ></textarea>
+                </div>
+              </div>
+              <div class="col-md-12">
+                <div class="form-inner">
+                  <button class="primary-btn btn-hover" type="submit">
+                    Save Changes
+                  </button>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

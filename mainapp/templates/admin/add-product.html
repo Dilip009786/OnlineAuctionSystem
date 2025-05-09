@@ -1,0 +1,158 @@
+{% extends 'admin/basepage.html' %} {% load static %} {% block content %}
+
+<div class="container-xxl flex-grow-1 container-p-y">
+  <div class="app-ecommerce">
+    <!-- Add Product -->
+    <div
+      class="d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center mb-6 gap-4 gap-md-0"
+    >
+      <div class="d-flex flex-column justify-content-center">
+        <h4 class="mb-1">Add a new Product</h4>
+        <p class="mb-0">Orders placed across across the country</p>
+      </div>
+    </div>
+
+    <div class="row">
+      <!-- First column-->
+      <div class="col-12 col-lg-12">
+        <!-- Product Information -->
+        <form method="POST" enctype="multipart/form-data">
+          {% csrf_token %}
+          <div class="card mb-6">
+              <div class="card-header">
+                  <h5 class="card-title mb-0">{{ product.title|default:"Add Product" }}</h5>
+              </div>
+              <div class="card-body">
+                  <div class="form-floating form-floating-outline mb-5">
+                      <input
+                          type="text"
+                          class="form-control"
+                          id="ecommerce-product-name"
+                          placeholder="Product title"
+                          name="name"
+                          value="{{ product.name|default:'' }}"
+                          required
+                      />
+                      <label for="ecommerce-product-name">Name</label>
+                  </div>
+      
+                  <div class="row gx-5 mb-5">
+                      <div class="col">
+                          <div class="form-floating form-floating-outline">
+                              <select
+                                  class="form-control"
+                                  id="ecommerce-product-category"
+                                  name="category"
+                                  required
+                              >
+                                  <option value="" disabled>Select a category</option>
+                                  {% for category in categories %}
+                                  <option value="{{ category.id }}" 
+                                          {% if product and product.category_id == category.id %}selected{% endif %}>
+                                      {{ category.title }}
+                                  </option>
+                                  {% endfor %}
+                              </select>
+                              <label for="ecommerce-product-category">Category</label>
+                          </div>
+                      </div>
+                  </div>
+      
+                  <div>
+                      <label class="mb-1">Description (Optional)</label>
+                      <textarea
+                          class="form-control"
+                          id="ecommerce-product-description"
+                          name="description"
+                          rows="4"
+                      >{{ product.description|default:'' }}</textarea>
+                  </div>
+      
+                  <div class="row gx-5 mb-5 mt-4">
+                      <div class="col">
+                          <div class="form-floating form-floating-outline">
+                              <input
+                                  type="number"
+                                  class="form-control"
+                                  id="ecommerce-product-price"
+                                  placeholder="0.00"
+                                  name="askingprice"
+                                  value="{{ product.askingprice|default:'' }}"
+                                  required
+                              />
+                              <label for="ecommerce-product-price">Asking Price</label>
+                          </div>
+                      </div><div class="col">
+                        <div class="form-floating form-floating-outline">
+                            <input
+                                type="datetime-local"
+                                class="form-control"
+                                id="ecommerce-product-expiry"
+                                name="expirytime"
+                                {% if product and product.expirytime %}
+                                    value="{{ product.expirytime|date:'Y-m-d\\TH:i' }}"
+                                {% endif %}
+                                required
+                            />
+                            <label for="ecommerce-product-expiry">Expiry Time</label>
+                        </div>
+                    </div>
+                    
+                  </div>
+      
+                  <div class="mb-3">
+                      <label for="ecommerce-product-image1" class="form-label">Upload Image 1</label>
+                      <input
+                          class="form-control"
+                          type="file"
+                          id="ecommerce-product-image1"
+                          name="image1"
+                      />
+                  </div>
+                  <div class="mb-3">
+                      <label for="ecommerce-product-image1" class="form-label">Upload Image 2</label>
+                      <input
+                          class="form-control"
+                          type="file"
+                          id="ecommerce-product-image2"
+                          name="image2"
+                      />
+                  </div>
+                  <div class="mb-3">
+                      <label for="ecommerce-product-image1" class="form-label">Upload Image 3</label>
+                      <input
+                          class="form-control"
+                          type="file"
+                          id="ecommerce-product-image3"
+                          name="image3"
+                      />
+                  </div>
+      
+                  <div class="mb-3">
+                      <label for="ecommerce-product-status" class="form-label">Status</label>
+                      <select
+                          class="form-select"
+                          id="ecommerce-product-status"
+                          name="status"
+                      >
+                          <option value="available" {% if product and product.status == 'available' %}selected{% endif %}>Available</option>
+                          <option value="sold" {% if product and product.status == 'sold' %}selected{% endif %}>Sold</option>
+                          <option value="deactivated" {% if product and product.status == 'deactivated' %}selected{% endif %}>Deactivated</option>
+                      </select>
+                  </div>
+              </div>
+          </div>
+          <div class="d-flex justify-content-end">
+              <button type="submit" class="btn btn-primary">
+                  {% if product %}Update{% else %}Publish{% endif %} Product
+              </button>
+          </div>
+      </form>
+      
+        <!-- /Product Information -->
+      </div>
+      <!-- /First column -->
+    </div>
+  </div>
+</div>
+{% endblock %}

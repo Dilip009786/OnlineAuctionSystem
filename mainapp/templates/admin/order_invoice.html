@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Order Invoice</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+        }
+        .header, .footer {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .order-details, .bidder-info, .seller-info, .pricing-info {
+            margin-bottom: 15px;
+        }
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .table, .table th, .table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+        .table th {
+            background-color: #f4f4f4;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Order Invoice</h1>
+        <p>Invoice ID: {{ order.id }}</p>
+        <p>Date: {{ order.deliverytime|date:"Y-m-d H:i" }}</p>
+    </div>
+
+    <div class="order-details">
+        <h3>Order Details</h3>
+        <table class="table">
+            <tr>
+                <th>Product Name</th>
+                <td>{{ order.bidding.product.name }}</td>
+            </tr>
+            <tr>
+                <th>Win Price</th>
+                <td>${{ order.winprice }}</td>
+            </tr>
+            <tr>
+                <th>Order Status</th>
+                <td>{{ order.orderstatus }}</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="bidder-info">
+        <h3>Bidder Information</h3>
+        <p><strong>Name:</strong> {{ order.bidder.username }}</p>
+        <p><strong>Contact:</strong> {{ order.deliverycontact }}</p>
+    </div>
+
+    <div class="seller-info">
+        <h3>Seller Information</h3>
+        <p><strong>Name:</strong> {{ order.seller.username }}</p>
+    </div>
+
+    <div class="pricing-info">
+        <h3>Delivery Information</h3>
+        <p><strong>Delivery Person:</strong> <td>
+            {% if order.deliveryperson %}
+                {{ order.deliveryperson.user.username }}
+            {% else %}
+                N/A
+            {% endif %}
+        </td> <p><strong>Delivery Time:</strong> {{ order.deliverytime|date:"Y-m-d H:i" }}</p>
+    </div>
+
+    <div class="footer">
+        <p>Thank you for using Online Auction System!</p>
+    </div>
+</body>
+</html>

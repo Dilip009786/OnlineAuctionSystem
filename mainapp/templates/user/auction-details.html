@@ -1,0 +1,619 @@
+{% extends 'user/basepage.html' %} {% load static %} {% block content %}
+
+<div
+  class="breadcrumb-section two"
+  style="
+    background-image: linear-gradient(
+        rgba(11, 12, 12, 0.6),
+        rgba(11, 12, 12, 0.6)
+      ),
+      url({% static 'user/assets/img/inner-pages/breadcrumb-bg2.jpg' %});
+  "
+>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="banner-content">
+          <h1>Auction Details</h1>
+          <ul class="breadcrumb-list">
+            <li><a href="index.html">Home</a></li>
+            <li>Auction Details</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="auction-details-section pt-110 mb-110">
+  <div class="container-fluid">
+    <div class="row gy-5">
+      <div class="col-xl-7">
+        <div class="auction-details-img">
+          <div class="tab-content" id="v-pills-tabContent">
+            <div
+              class="tab-pane fade show active"
+              id="v-pills-img1"
+              role="tabpanel"
+              aria-labelledby="v-pills-img1-tab"
+            >
+              <div class="auction-details-tab-img">
+                <img src="{{ product.image1.url }}" alt="" />
+              </div>
+            </div>
+            <div
+              class="tab-pane fade"
+              id="v-pills-img2"
+              role="tabpanel"
+              aria-labelledby="v-pills-img2-tab"
+            >
+              <div class="auction-details-tab-img">
+                <img src="{{ product.image2.url }}" alt="" />
+              </div>
+            </div>
+            <div
+              class="tab-pane fade"
+              id="v-pills-img3"
+              role="tabpanel"
+              aria-labelledby="v-pills-img3-tab"
+            >
+              <div class="auction-details-tab-img">
+                <img src="{{ product.image3.url }}" alt="" />
+              </div>
+            </div>
+            <div
+              class="tab-pane fade"
+              id="v-pills-img4"
+              role="tabpanel"
+              aria-labelledby="v-pills-img4-tab"
+            >
+              <div class="auction-details-tab-img">
+                <img
+                  src="../assets/img/inner-pages/auction-details-img4.jpg"
+                  alt=""
+                />
+              </div>
+            </div>
+            <div
+              class="tab-pane fade"
+              id="v-pills-img5"
+              role="tabpanel"
+              aria-labelledby="v-pills-img5-tab"
+            >
+              <div class="auction-details-tab-img">
+                <img
+                  src="../assets/img/inner-pages/auction-details-img5.jpg"
+                  alt=""
+                />
+              </div>
+            </div>
+          </div>
+          <div
+            class="nav nav-pills"
+            id="v-pills-tab"
+            role="tablist"
+            aria-orientation="vertical"
+          >
+            <div
+              class="swiper auction-details-nav-slider swiper-initialized swiper-horizontal swiper-backface-hidden"
+            >
+              <div
+                class="swiper-wrapper"
+                id="swiper-wrapper-88848c32e986a422"
+                aria-live="off"
+              >
+                <div
+                  class="swiper-slide swiper-slide-active"
+                  role="group"
+                  aria-label="1 / 5"
+                  style="width: 190.2px; margin-right: 15px"
+                >
+                  <div class="nav-item" role="presentation">
+                    <button
+                      class="nav-link active"
+                      id="v-pills-img1-tab"
+                      data-bs-toggle="pill"
+                      data-bs-target="#v-pills-img1"
+                      type="button"
+                      role="tab"
+                      aria-controls="v-pills-img1"
+                      aria-selected="true"
+                    >
+                      <img src="{{ product.image1.url }}" alt="" />
+                    </button>
+                  </div>
+                </div>
+                <div
+                  class="swiper-slide swiper-slide-next"
+                  role="group"
+                  aria-label="2 / 5"
+                  style="width: 190.2px; margin-right: 15px"
+                >
+                  <div class="nav-item" role="presentation">
+                    <button
+                      class="nav-link"
+                      id="v-pills-img2-tab"
+                      data-bs-toggle="pill"
+                      data-bs-target="#v-pills-img2"
+                      type="button"
+                      role="tab"
+                      aria-controls="v-pills-img2"
+                      aria-selected="false"
+                      tabindex="-1"
+                    >
+                      <img src="{{ product.image2.url }}" alt="" />
+                    </button>
+                  </div>
+                </div>
+                <div
+                  class="swiper-slide"
+                  role="group"
+                  aria-label="3 / 5"
+                  style="width: 190.2px; margin-right: 15px"
+                >
+                  <div class="nav-item" role="presentation">
+                    <button
+                      class="nav-link"
+                      id="v-pills-img3-tab"
+                      data-bs-toggle="pill"
+                      data-bs-target="#v-pills-img3"
+                      type="button"
+                      role="tab"
+                      aria-controls="v-pills-img3"
+                      aria-selected="false"
+                      tabindex="-1"
+                    >
+                      <img src="{{ product.image3.url }}" alt="" />
+                    </button>
+                  </div>
+                </div>
+                <div
+                  class="swiper-slide"
+                  role="group"
+                  aria-label="4 / 5"
+                  style="width: 190.2px; margin-right: 15px"
+                >
+                  <div class="nav-item" role="presentation">
+                    <button
+                      class="nav-link"
+                      id="v-pills-img4-tab"
+                      data-bs-toggle="pill"
+                      data-bs-target="#v-pills-img4"
+                      type="button"
+                      role="tab"
+                      aria-controls="v-pills-img4"
+                      aria-selected="false"
+                      tabindex="-1"
+                    >
+                      <img src="{{ product.image1.url }}" alt="" />
+                    </button>
+                  </div>
+                </div>
+                <div
+                  class="swiper-slide"
+                  role="group"
+                  aria-label="5 / 5"
+                  style="width: 190.2px; margin-right: 15px"
+                >
+                  <div class="nav-item" role="presentation">
+                    <button
+                      class="nav-link"
+                      id="v-pills-img5-tab"
+                      data-bs-toggle="pill"
+                      data-bs-target="#v-pills-img5"
+                      type="button"
+                      role="tab"
+                      aria-controls="v-pills-img5"
+                      aria-selected="false"
+                      tabindex="-1"
+                    >
+                      <img src="{{ product.image2.url }}" alt="" />
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <span
+                class="swiper-notification"
+                aria-live="assertive"
+                aria-atomic="true"
+              ></span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-5">
+        <div class="auction-details-content">
+          <div class="batch">
+            <span>Lot: # {{ product.id }}</span>
+            <!-- Assuming the product ID is displayed -->
+          </div>
+          <h1>{{ product.name }}</h1>
+          <p>{{ product.description }}</p>
+          <!-- Display product description -->
+          <div class="price-area">
+            <span>Current Bid at:</span>
+            <strong>${{ product.askingprice }}</strong>
+          </div>
+          <div class="coundown-area">
+            <h6>Auction Will Be End:</h6>
+            <div class="countdown-timer">
+              <ul data-countdown="{{ product.expirytime|date:'Y-m-d H:i:s' }}">
+                <li data-days="00">00 <br /><span>Days</span></li>
+                <li class="clone">:</li>
+                <li data-hours="00">00 <br /><span>Hours</span></li>
+                <li class="clone">:</li>
+                <li data-minutes="00">00 <br /><span>Minutes</span></li>
+                <li class="clone">:</li>
+                <li data-seconds="00">00 <br /><span>Seconds</span></li>
+              </ul>
+            </div>
+
+            <span><strong>Ending On:</strong> {{ product.expirytime }}</span>
+          </div>
+          <div class="quantity-area">
+            <h6>Your Max Bid:</h6>
+            <form id="bid-form" action="{% url 'place_bid' product.id %}" method="POST">
+              {% csrf_token %}
+              <div class="quantity-counter-and-btn-area">
+                <div class="quantity-counter">
+                  <a href="#" class="quantity__minus"
+                    ><i class="bx bx-minus"></i
+                  ></a>
+                  <input
+                    name="bidamount"
+                    type="number"
+                    class="quantity__input"
+                    value=""
+                    required
+                    min="0"
+                  />
+                  <a href="#" class="quantity__plus"
+                    ><i class="bx bx-plus"></i
+                  ></a>
+                </div>
+                <button
+                  type="submit"
+                  class="primary-btn btn-hover"
+                >
+                  Place Bid
+                </button>
+              </div>
+            </form>
+            {% if error_message %}
+            <p style="color: red">{{ error_message }}</p>
+            {% endif %}
+          </div>
+        </div>
+
+        <div class="auction-details-description-area">
+          <div class="auction-details-description-nav mb-50">
+            <nav>
+              <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                <button
+                  class="nav-link active"
+                  id="nav-description-tab"
+                  data-bs-toggle="tab"
+                  data-bs-target="#nav-description"
+                  type="button"
+                  role="tab"
+                  aria-controls="nav-description"
+                  aria-selected="true"
+                >
+                  Description
+                </button>
+                <button
+                  class="nav-link"
+                  id="nav-add-info-tab"
+                  data-bs-toggle="tab"
+                  data-bs-target="#nav-add-info"
+                  type="button"
+                  role="tab"
+                  aria-controls="nav-add-info"
+                  aria-selected="false"
+                >
+                  Bidding History
+                </button>
+              </div>
+            </nav>
+          </div>
+          <div class="auction-details-description-tab">
+            <div class="tab-content" id="nav-tabContent">
+              <div
+                class="tab-pane fade show active"
+                id="nav-description"
+                role="tabpanel"
+                aria-labelledby="nav-description-tab"
+              >
+                <div class="description-content">
+                  <h3>They’re kinda our Best thing!</h3>
+                  <p>
+                    Urna Aenean onewaryzo eleifend vitae tellus a facilisis.
+                    Nunc posuere at augue eget port. Inei odion goat tellus,
+                    dignissim fermentumara purus nec, consequat dapibus metus.
+                    Vav urna worlda mauris, goat te faucibus at egestas quis,
+                    fermentum egetonav neque. Dphare lectus nec risusonl
+                    pellentesque, opi vitae aliquet nisi dapibus. Sed volutpat
+                    mi velit.
+                  </p>
+                  <p>
+                    Urna Aenean onewaryzo eleifend vitae tellus a facilisis.
+                    Nunc posuere at augue eget port. Inei odion goat tellus,
+                    dignissim fermentumara purus nec,
+                  </p>
+                  <ul>
+                    <li>
+                      <svg
+                        width="13"
+                        height="11"
+                        viewbox="0 0 13 11"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M12.2986 0.0327999C9.89985 0.832756 6.86143 2.97809 4.03623 6.6688L2.36599 4.778C2.09946 4.4871 1.63748 4.4871 1.38872 4.778L0.162693 6.17792C-0.0682981 6.45063 -0.0505298 6.86879 0.19823 7.12332L3.96516 10.814C4.28499 11.1231 4.78251 11.0322 4.99574 10.6504C7.00358 6.92333 9.17134 4.15985 12.7961 0.996384C13.2581 0.596406 12.8672 -0.167189 12.2986 0.0327999Z"
+                        ></path>
+                      </svg>
+                      Paraben-Free
+                    </li>
+                    <li>
+                      <svg
+                        width="13"
+                        height="11"
+                        viewbox="0 0 13 11"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M12.2986 0.0327999C9.89985 0.832756 6.86143 2.97809 4.03623 6.6688L2.36599 4.778C2.09946 4.4871 1.63748 4.4871 1.38872 4.778L0.162693 6.17792C-0.0682981 6.45063 -0.0505298 6.86879 0.19823 7.12332L3.96516 10.814C4.28499 11.1231 4.78251 11.0322 4.99574 10.6504C7.00358 6.92333 9.17134 4.15985 12.7961 0.996384C13.2581 0.596406 12.8672 -0.167189 12.2986 0.0327999Z"
+                        ></path>
+                      </svg>
+                      Sulfate-Free
+                    </li>
+                    <li>
+                      <svg
+                        width="13"
+                        height="11"
+                        viewbox="0 0 13 11"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M12.2986 0.0327999C9.89985 0.832756 6.86143 2.97809 4.03623 6.6688L2.36599 4.778C2.09946 4.4871 1.63748 4.4871 1.38872 4.778L0.162693 6.17792C-0.0682981 6.45063 -0.0505298 6.86879 0.19823 7.12332L3.96516 10.814C4.28499 11.1231 4.78251 11.0322 4.99574 10.6504C7.00358 6.92333 9.17134 4.15985 12.7961 0.996384C13.2581 0.596406 12.8672 -0.167189 12.2986 0.0327999Z"
+                        ></path>
+                      </svg>
+                      Clean at Sephora
+                    </li>
+                    <li>
+                      <svg
+                        width="13"
+                        height="11"
+                        viewbox="0 0 13 11"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M12.2986 0.0327999C9.89985 0.832756 6.86143 2.97809 4.03623 6.6688L2.36599 4.778C2.09946 4.4871 1.63748 4.4871 1.38872 4.778L0.162693 6.17792C-0.0682981 6.45063 -0.0505298 6.86879 0.19823 7.12332L3.96516 10.814C4.28499 11.1231 4.78251 11.0322 4.99574 10.6504C7.00358 6.92333 9.17134 4.15985 12.7961 0.996384C13.2581 0.596406 12.8672 -0.167189 12.2986 0.0327999Z"
+                        ></path>
+                      </svg>
+                      Clean at Sephora
+                    </li>
+                    <li>
+                      <svg
+                        width="13"
+                        height="11"
+                        viewbox="0 0 13 11"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M12.2986 0.0327999C9.89985 0.832756 6.86143 2.97809 4.03623 6.6688L2.36599 4.778C2.09946 4.4871 1.63748 4.4871 1.38872 4.778L0.162693 6.17792C-0.0682981 6.45063 -0.0505298 6.86879 0.19823 7.12332L3.96516 10.814C4.28499 11.1231 4.78251 11.0322 4.99574 10.6504C7.00358 6.92333 9.17134 4.15985 12.7961 0.996384C13.2581 0.596406 12.8672 -0.167189 12.2986 0.0327999Z"
+                        ></path>
+                      </svg>
+                      Fragrance Free
+                    </li>
+                    <li>
+                      <svg
+                        width="13"
+                        height="11"
+                        viewbox="0 0 13 11"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M12.2986 0.0327999C9.89985 0.832756 6.86143 2.97809 4.03623 6.6688L2.36599 4.778C2.09946 4.4871 1.63748 4.4871 1.38872 4.778L0.162693 6.17792C-0.0682981 6.45063 -0.0505298 6.86879 0.19823 7.12332L3.96516 10.814C4.28499 11.1231 4.78251 11.0322 4.99574 10.6504C7.00358 6.92333 9.17134 4.15985 12.7961 0.996384C13.2581 0.596406 12.8672 -0.167189 12.2986 0.0327999Z"
+                        ></path>
+                      </svg>
+                      Cruelty-Free
+                    </li>
+                    <li>
+                      <svg
+                        width="13"
+                        height="11"
+                        viewbox="0 0 13 11"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M12.2986 0.0327999C9.89985 0.832756 6.86143 2.97809 4.03623 6.6688L2.36599 4.778C2.09946 4.4871 1.63748 4.4871 1.38872 4.778L0.162693 6.17792C-0.0682981 6.45063 -0.0505298 6.86879 0.19823 7.12332L3.96516 10.814C4.28499 11.1231 4.78251 11.0322 4.99574 10.6504C7.00358 6.92333 9.17134 4.15985 12.7961 0.996384C13.2581 0.596406 12.8672 -0.167189 12.2986 0.0327999Z"
+                        ></path>
+                      </svg>
+                      Antioxidants
+                    </li>
+                    <li>
+                      <svg
+                        width="13"
+                        height="11"
+                        viewbox="0 0 13 11"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M12.2986 0.0327999C9.89985 0.832756 6.86143 2.97809 4.03623 6.6688L2.36599 4.778C2.09946 4.4871 1.63748 4.4871 1.38872 4.778L0.162693 6.17792C-0.0682981 6.45063 -0.0505298 6.86879 0.19823 7.12332L3.96516 10.814C4.28499 11.1231 4.78251 11.0322 4.99574 10.6504C7.00358 6.92333 9.17134 4.15985 12.7961 0.996384C13.2581 0.596406 12.8672 -0.167189 12.2986 0.0327999Z"
+                        ></path>
+                      </svg>
+                      Antioxidants
+                    </li>
+                  </ul>
+                  <p>
+                    Urna Aenean onewaryzo eleifend vitae tellus a facilisis.
+                    Nunc posuere at augue eget port. Inei odion goat tellus,
+                    dignissim fermentumara purus nec, consequat dapibus metus.
+                    Vav urna worlda mauris, goat te faucibus at egestas quis,
+                    fermentum egetonav neque. Dphare lectus nec risusonl
+                    pellentesque, opi vitae aliquet nisi dapibus. Sed volutpat
+                    mi velit.
+                  </p>
+                </div>
+              </div>
+              <div
+                class="tab-pane fade"
+                id="nav-add-info"
+                role="tabpanel"
+                aria-labelledby="nav-add-info-tab"
+              >
+                <div class="addithonal-information">
+                  <table class="table total-table2">
+                    <thead>
+                      <tr>
+                          <th>Bidder</th>
+                          <th>Bid Amount</th>
+                          <th>Bid Time</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                      {% for history in bidding_histories %}
+                          <tr>
+                              <td>{{ history.bidder.first_name }} {{ history.bidder.last_name }}</td>
+                              <td>{{ history.bidamount }}</td>
+                              <td>{{ history.bidtime|date:"D, d M Y H:i" }}</td>
+                          </tr>
+                      {% empty %}
+                          <tr>
+                              <td colspan="3">No bidding history available.</td>
+                          </tr>
+                      {% endfor %}
+                  </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="home2-latest-auction-section mb-110">
+  <div class="container">
+    <div class="row mb-60">
+      <div
+        class="col-lg-12 d-flex align-items-center justify-content-between flex-wrap gap-3"
+      >
+        <div class="section-title">
+          <h2>Related <span>Auction</span></h2>
+        </div>
+        <div class="slider-btn-grp">
+          <div class="slider-btn auction-slider-prev">
+            <svg
+              width="9"
+              height="15"
+              viewbox="0 0 9 15"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path d="M0 7.50009L9 0L3.27273 7.50009L9 15L0 7.50009Z"></path>
+            </svg>
+          </div>
+          <div class="slider-btn auction-slider-next">
+            <svg
+              width="9"
+              height="15"
+              viewbox="0 0 9 15"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path d="M9 7.50009L0 0L5.72727 7.50009L0 15L9 7.50009Z"></path>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="auction-slider-area">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="swiper auction-slider">
+            <div class="swiper-wrapper">
+              {% for product in products %}
+              <div class="swiper-slide">
+                <div class="auction-card style-2">
+                  <div class="auction-card-img-wrap">
+                    <a href="#" class="card-img">
+                      <img
+                        src="{{ product.image1.url }}"
+                        alt="{{ product.name }}"
+                      />
+                    </a>
+                    {% if product.status == 'available' %}
+                    <div class="batch">
+                      <span class="live">
+                        <svg
+                          width="11"
+                          height="11"
+                          viewBox="0 0 11 11"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M8.00013 3.32629L7.32792 2.63535C5.75006 1.01348 2.85685 1.57317 1.81244 3.61222C1.32211 4.57128 1.21149 5.95597 2.10683 7.72315C2.96935 9.42471 4.76378 11.4628 8.00013 13.6828C11.2365 11.4628 13.03 9.42471 13.8934 7.72315C14.7888 5.95503 14.6791 4.57128 14.1878 3.61222C13.1434 1.57317 10.2502 1.01254 8.67234 2.63441L8.00013 3.32629ZM8.00013 14.8125C-6.375 5.31378 3.57406 -2.09995 7.83512 1.8216C7.89138 1.87317 7.94669 1.9266 8.00013 1.98192C8.05303 1.92665 8.10807 1.87349 8.16513 1.82254C12.4253 -2.10182 22.3753 5.31284 8.00013 14.8125Z"
+                          ></path>
+                        </svg>
+                        Live
+                      </span>
+                    </div>
+                    {% endif %}
+                    <ul class="view-and-favorite-area">
+                      <li>
+                        <a href="{% url 'add_to_wishlist' product.id %}">
+                          <svg
+                            width="16"
+                            height="15"
+                            viewBox="0 0 16 15"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M8.00013 3.32629L7.32792 2.63535C5.75006 1.01348 2.85685 1.57317 1.81244 3.61222C1.32211 4.57128 1.21149 5.95597 2.10683 7.72315C2.96935 9.42471 4.76378 11.4628 8.00013 13.6828C11.2365 11.4628 13.03 9.42471 13.8934 7.72315C14.7888 5.95503 14.6791 4.57128 14.1878 3.61222C13.1434 1.57317 10.2502 1.01254 8.67234 2.63441L8.00013 3.32629ZM8.00013 14.8125C-6.375 5.31378 3.57406 -2.09995 7.83512 1.8216C7.89138 1.87317 7.94669 1.9266 8.00013 1.98192C8.05303 1.92665 8.10807 1.87349 8.16513 1.82254C12.4253 -2.10182 22.3753 5.31284 8.00013 14.8125Z"
+                            ></path>
+                          </svg>
+                        </a>
+                      </li>
+                    </ul>
+                    <div class="countdown-timer">
+                      <ul
+                        data-countdown="{{ product.expirytime|date:'Y-m-d H:i:s' }}"
+                      >
+                        <li class="times" data-days="00">00</li>
+                        <li class="colon">:</li>
+                        <li class="times" data-hours="00">00</li>
+                        <li class="colon">:</li>
+                        <li class="times" data-minutes="00">00</li>
+                        <li class="colon">:</li>
+                        <li class="times" data-seconds="00">00</li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="auction-card-content">
+                    <h6>
+                      <a href="#">{{ product.name }}</a>
+                      <p>{{ product.description }}</p>
+                    </h6>
+                    <div class="price-and-code-area">
+                      <div class="price">
+                        <span>Asking Price:</span>
+                        <strong>${{ product.askingprice }}</strong>
+                      </div>
+                      <a href="#" class="bid-btn">Bid Now</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

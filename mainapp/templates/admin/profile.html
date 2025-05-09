@@ -1,0 +1,83 @@
+{% extends 'admin/basepage.html' %} {% load static %} {% block content %}
+
+<div class="container-xxl flex-grow-1 container-p-y">
+  <div class="app-ecommerce">
+    <!-- Add Category -->
+    <div
+      class="d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center mb-6 gap-4 gap-md-0"
+    >
+      <div class="d-flex flex-column justify-content-center">
+        <h4 class="mb-1">Profile</h4>
+        <p class="mb-0">Manage Your Profile</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12 col-lg-12">
+        <!-- Profile Header -->
+        <div class="card mb-4">
+          <div class="card-header">
+            <h5 class="card-title mb-0">{{ user_profile.user.username }}'s Profile</h5>
+          </div>
+          <div class="card-body">
+            <!-- If editing profile -->
+            {% if request.GET.edit %}
+            <form method="POST" enctype="multipart/form-data">
+              {% csrf_token %}
+              <div class="mb-3">
+                <label for="phoneno" class="form-label">Phone Number</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="phoneno"
+                  name="phoneno"
+                  value="{{ user_profile.phoneno|default:'' }}"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label for="address" class="form-label">Address</label>
+                <textarea
+                  class="form-control"
+                  id="address"
+                  name="address"
+                  rows="3"
+                  required
+                >{{ user_profile.address|default:'' }}</textarea>
+              </div>
+              <div class="mb-3">
+                <label for="photo" class="form-label">Profile Photo</label>
+                <input type="file" class="form-control" id="photo" name="photo" />
+                {% if user_profile.profile_photo %}
+                <img src="{{ user_profile.profile_photo.url }}" alt="Profile Photo" class="mt-3" style="max-width: 150px;" />
+                {% endif %}
+              </div>
+              <div class="d-flex justify-content-end">
+                <button type="submit" class="btn btn-primary">Save Profile</button>
+              </div>
+            </form>
+            {% else %}
+            <!-- If viewing profile -->
+            <div class="mb-3">
+              <strong>Phone Number:</strong> {{ user_profile.phoneno|default:"Not Provided" }}
+            </div>
+            <div class="mb-3">
+              <strong>Address:</strong> {{ user_profile.address|default:"Not Provided" }}
+            </div>
+            <div class="mb-3">
+              {% if user_profile.profile_photo %}
+              <img src="{{ user_profile.profile_photo.url }}" alt="Profile Photo" style="max-width: 150px;" />
+              {% else %}
+              <em>No profile photo uploaded</em>
+              {% endif %}
+            </div>
+            <div class="d-flex justify-content-end">
+              <a href="?edit=true" class="btn btn-secondary">Edit Profile</a>
+            </div>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

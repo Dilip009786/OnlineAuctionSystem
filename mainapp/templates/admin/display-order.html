@@ -1,0 +1,121 @@
+{% extends 'admin/basepage.html' %} {% load static %} {% block content %}
+
+<div class="container-xxl flex-grow-1 container-p-y">
+  <!-- Order Management -->
+  <div class="app-ecommerce">
+    <div
+      class="d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center mb-6 gap-4 gap-md-0"
+    >
+      <div class="d-flex flex-column justify-content-center">
+        <h4 class="mb-1">Orders</h4>
+        <p class="mb-0">Manage your orders effectively.</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12 col-lg-12">
+        <!-- Orders Table -->
+        <div class="card mb-6">
+          <div
+            class="card-header d-flex justify-content-between align-items-center"
+          >
+            <h5 class="card-title mb-0">Orders List</h5>
+            <input
+              type="text"
+              id="ordersSearchInput"
+              placeholder="Search..."
+              class="form-control w-25"
+            />
+          </div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table
+                class="table table-striped table-bordered"
+                id="ordersTable"
+              >
+                <thead>
+                  <tr>
+                    <th>Order ID</th>
+                    <th>Bidder</th>
+                    <th>Seller</th>
+                    <th>Winning Price</th>
+                    <th>Order Status</th>
+                    <th>Delivery Person</th>
+                    <th>Contact</th>
+                    <th>Delivery Time</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for order in orders %}
+                  <tr class="{% cycle 'odd' 'even' %}">
+                    <td>{{ order.id }}</td>
+                    <td>{{ order.bidder.username }}</td>
+                    <td>{{ order.seller.username }}</td>
+                    <td>${{ order.winprice }}</td>
+                    <td>{{ order.orderstatus }}</td>
+                    <td>
+                      {% if order.deliveryperson %} {{ order.deliveryperson.user.username }} {% else %} N/A {% endif %}
+                    </td>
+                    <td>{{ order.deliverycontact }}</td>
+                    <td>{{ order.deliverytime|date:"Y-m-d H:i" }}</td>
+                    <td>
+                      <div class="d-inline-block text-nowrap">
+                        <a
+                          href="{% url 'delete_object' model_name='order' object_id=order.id %}"
+                          class="btn btn-sm btn-icon btn-text-secondary rounded-pill text-body"
+                        >
+                          <i class="ri-delete-bin-line"></i>
+                        </a>
+                      </div>
+                    </td>
+                  </tr>
+                  {% empty %}
+                  <tr>
+                    <td colspan="9" class="text-center">No orders found.</td>
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <!-- /Orders Table -->
+      </div>
+    </div>
+
+    <script>
+      document
+        .getElementById("ordersSearchInput")
+        .addEventListener("keyup", function () {
+          const searchTerm = this.value.toLowerCase();
+          const rows = document.querySelectorAll("#ordersTable tbody tr");
+
+          rows.forEach((row) => {
+            const orderId = row.cells[0].textContent.toLowerCase();
+            const bidderName = row.cells[1].textContent.toLowerCase();
+            const sellerName = row.cells[2].textContent.toLowerCase();
+            const winningPrice = row.cells[3].textContent.toLowerCase();
+            const orderStatus = row.cells[4].textContent.toLowerCase();
+            const deliveryPerson = row.cells[5].textContent.toLowerCase();
+            const deliveryContact = row.cells[6].textContent.toLowerCase();
+
+            if (
+              orderId.includes(searchTerm) ||
+              bidderName.includes(searchTerm) ||
+              sellerName.includes(searchTerm) ||
+              winningPrice.includes(searchTerm) ||
+              orderStatus.includes(searchTerm) ||
+              deliveryPerson.includes(searchTerm) ||
+              deliveryContact.includes(searchTerm)
+            ) {
+              row.style.display = "";
+            } else {
+              row.style.display = "none";
+            }
+          });
+        });
+    </script>
+  </div>
+</div>
+
+{% endblock %}

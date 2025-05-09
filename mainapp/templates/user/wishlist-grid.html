@@ -1,0 +1,142 @@
+{% extends 'user/basepage.html' %} {% load static %} {% block content %}
+
+<div
+  class="breadcrumb-section two"
+  style="
+    background-image: linear-gradient(
+        rgba(11, 12, 12, 0.6),
+        rgba(11, 12, 12, 0.6)
+      ),
+      url({% static 'user/assets/img/inner-pages/breadcrumb-bg2.jpg' %});
+  "
+>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="banner-content">
+          <h1>Wishlist</h1>
+          <ul class="breadcrumb-list">
+            <li><a href="index.html">Home</a></li>
+            <li>Wishlist</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="auction-grid-section pt-110 mb-110">
+  <div class="container">
+    <div class="list-grid-product-wrap">
+      <div class="row g-4 mb-60">
+        {% for product in products %}
+        <div
+          class="col-xl-3 col-md-4 item wow animate fadeInDown"
+          data-wow-delay="200ms"
+          data-wow-duration="1500ms"
+        >
+          <div class="auction-card style-2">
+            <div class="auction-card-img-wrap">
+              <!-- Product Image -->
+              <a href="#" class="card-img">
+                <img src="{{ product.image1.url }}" alt="{{ product.name }}" />
+              </a>
+              <div class="batch">
+                <span class="live">
+                  <svg
+                    width="11"
+                    height="11"
+                    viewBox="0 0 11 11"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path d="..."></path>
+                  </svg>
+                  Live
+                </span>
+              </div>
+              <ul class="view-and-favorite-area">
+                <li>
+                  <a href="{% url 'remove_from_wishlist' product.id %}">
+                    <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="m12.75 20.66 6.184-7.098c2.677-2.884 2.559-6.506.754-8.705-.898-1.095-2.206-1.816-3.72-1.855-1.293-.034-2.652.43-3.963 1.442-1.315-1.012-2.678-1.476-3.973-1.442-1.515.04-2.825.76-3.724 1.855-1.806 2.201-1.915 5.823.772 8.706l6.183 7.097c.19.216.46.34.743.34a.985.985 0 0 0 .743-.34Z"/>
+                  </svg>
+                  </a>
+                </li>
+              </ul>
+              <!-- Countdown Timer -->
+                    <div class="countdown-timer">
+                      <ul
+                        data-countdown="{{ product.expirytime|date:'Y-m-d H:i:s' }}"
+                      >
+                        <li class="times" data-days="00">00</li>
+                        <li class="colon">:</li>
+                        <li class="times" data-hours="00">00</li>
+                        <li class="colon">:</li>
+                        <li class="times" data-minutes="00">00</li>
+                        <li class="colon">:</li>
+                        <li class="times" data-seconds="00">00</li>
+                      </ul>
+                    </div>
+            </div>
+            <div class="auction-card-content">
+              <h6>
+                <a href="#">
+                  {{ product.name }}
+                </a>
+              </h6>
+              <div class="price-and-code-area">
+                <div class="price">
+                  <span>Current Bid at:</span>
+                  <strong>${{ product.askingprice }}</strong>
+                </div>
+                <a href="#" class="bid-btn"
+                  >Bid Now</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+    <div class="row">
+      <div
+        class="col-lg-12 d-flex justify-content-center wow animate fadeInUp"
+        data-wow-delay="400ms"
+        data-wow-duration="1500ms"
+      >
+        <div class="inner-pagination-area">
+          <ul class="paginations">
+            <li class="page-item active">
+              <a href="#">01</a>
+            </li>
+            <li class="page-item">
+              <a href="#">02</a>
+            </li>
+            <li class="page-item">
+              <a href="#">03</a>
+            </li>
+            <li class="page-item paginations-button">
+              <a href="#">
+                <svg
+                  width="16"
+                  height="13"
+                  viewbox="0 0 16 13"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M15.557 10.1026L1.34284 1.89603M15.557 10.1026C12.9386 8.59083 10.8853 3.68154 12.7282 0.489511M15.557 10.1026C12.9386 8.59083 7.66029 9.2674 5.81744 12.4593"
+                    stroke-width="0.96"
+                    stroke-linecap="round"
+                  ></path>
+                </svg>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
